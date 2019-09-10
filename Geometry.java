@@ -3,6 +3,6 @@ public class Geometry  {
         int sides = 7;
         int radius = 5;
         double tau = 6.28318;
-        System.out.printf("A heptagon has %d sides\nA decagon has 10 sides\nA dodecagon has 12 sides\nThe circumfrence of a circle with a radius of %d is %f\n", sides, radius, radius * tau);
+        System.out.printf("A heptagon has %d sides\nA decagon has %d sides\nA dodecagon has %d sides\nThe circumfrence of a circle with a radius of %d is %f\n", sides, sides + 3, sides + 3, radius, radius * tau);
     }
 }
