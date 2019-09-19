@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class RnadomNumbers  {
+
+    public static void main (String [] args)  {
+
+	Random rand = new Random();
+
+	int num;
+	double val;
+
+	num = rand.nextInt(10);
+
+	System.out.printf("[0, 9] = %d", num);
+
+	num = rand.nextInt(10) + 1;
+
+	System.out.printf("[1, 10] = %d", num);
+
+	num = rand.nextInt(10) + 1;
+
+	System.out.printf("[0, 9] = %d", num);
+
+	num = rand.nextInt(10) + 1;
+
+	System.out.printf("[0, 9] = %d", num);
+    }
+}
