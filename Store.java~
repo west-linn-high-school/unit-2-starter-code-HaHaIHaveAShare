@@ -1,10 +1,12 @@
 import java.util.*;
 import java.math.*;
 
-public class reciept  {
+public class Reciept  {
     
     public static void main (String [] args)  {
 
+	String cashierName = "Sally";
+	
 	double grandTotal;
 	double subTotal;
 	double tax;
@@ -12,13 +14,13 @@ public class reciept  {
 
 	Random rand = new Random(); // Random number generator
 	
-	product books = new product(9.0, 0.95, true, 0.0, 50.0, "Books", 0);
+	Product books = new Product(9.0, 0.95, true, 0.0, 50.0, "Books", 0);
 	books.getAmount();
 
-	product movies = new product(13.97, (0.04 * 13.97), true, 0.0, 50.0, "Movies", 0);
+	Product movies = new Product(13.97, (0.04 * 13.97), true, 0.0, 50.0, "Movies", 0);
 	movies.getAmount();
 	
-	product peanuts = new product(1.72, .3, false, 0.0, 50.0, "Peanuts (lbs.)", -1);
+	Product peanuts = new Product(1.72, .3, false, 0.0, 50.0, "Peanuts (lbs.)", -1);
 	peanuts.getAmount();
 
 	subTotal = books.total + movies.total + peanuts.total;
@@ -30,7 +32,7 @@ public class reciept  {
 	System.out.format("+----------------------+\n" +
 			  "|Steve's S-MART        |\n" +
 			  "+----------------------+\n" +
-			  "|CASHIERNAME           |\n" +
+			  "|%-22s|\n" +
 			  "|%02d:%02d:%02d    %02d/%02d/%04d|\n" +
 			  "|Books:              %02.0f|\n" +
 			  "|               $%06.2f|\n" +
@@ -49,7 +51,8 @@ public class reciept  {
 			  "|Grand Total:          |\n" +
 			  "|              $%07.2f|\n" +
 			  "+----------------------+\n",
-			  rand.nextInt(24) + 1, rand.nextInt(60), rand.nextInt(60), rand.nextInt(28) + 1, rand.nextInt(12) + 1, rand.nextInt(20) + 2000,
+			  cashierName,
+			  rand.nextInt(24), rand.nextInt(60), rand.nextInt(60), rand.nextInt(28) + 1, rand.nextInt(12) + 1, rand.nextInt(20) + 2000,
 			  books.amount, books.total, movies.amount, movies.total, peanuts.amount, peanuts.total,
 			  subTotal, tax, shipping, grandTotal);
 	
@@ -57,7 +60,7 @@ public class reciept  {
     
 }
 
-class product  { // I miss pointers
+class Product  { // I miss pointers
 
     // Various configurbles
 
@@ -67,7 +70,7 @@ class product  { // I miss pointers
 
     String PRODUCT;
 
-    public product (double price, double shipping, boolean taxable, double min, double max, String productName, int precision)  {
+    public Product (double price, double shipping, boolean taxable, double min, double max, String productName, int precision)  {
 	
 	PRICE = price;
 	SHIPPING = shipping;

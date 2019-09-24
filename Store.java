@@ -1,10 +1,15 @@
 import java.util.*;
 import java.math.*;
 
-public class Reciept  {
+public class Store  {
     
     public static void main (String [] args)  {
+	
+	Scanner sc = new Scanner(System.in);
 
+	System.out.print("Cashier name: ");
+	String cashierName = sc.nextLine();
+	
 	double grandTotal;
 	double subTotal;
 	double tax;
@@ -30,7 +35,7 @@ public class Reciept  {
 	System.out.format("+----------------------+\n" +
 			  "|Steve's S-MART        |\n" +
 			  "+----------------------+\n" +
-			  "|CASHIERNAME           |\n" +
+			  "|%-22s|\n" +
 			  "|%02d:%02d:%02d    %02d/%02d/%04d|\n" +
 			  "|Books:              %02.0f|\n" +
 			  "|               $%06.2f|\n" +
@@ -49,7 +54,8 @@ public class Reciept  {
 			  "|Grand Total:          |\n" +
 			  "|              $%07.2f|\n" +
 			  "+----------------------+\n",
-			  rand.nextInt(24) + 1, rand.nextInt(60), rand.nextInt(60), rand.nextInt(28) + 1, rand.nextInt(12) + 1, rand.nextInt(20) + 2000,
+			  cashierName,
+			  rand.nextInt(24), rand.nextInt(60), rand.nextInt(60), rand.nextInt(28) + 1, rand.nextInt(12) + 1, rand.nextInt(20) + 2000,
 			  books.amount, books.total, movies.amount, movies.total, peanuts.amount, peanuts.total,
 			  subTotal, tax, shipping, grandTotal);
 	
