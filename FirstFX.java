@@ -10,19 +10,22 @@ import javafx.stage.Stage;
 public class FirstFX extends Application {
 
     public void start(Stage stage){
-	Text face = new Text(0, 0, "\nAccording to all known laws\nof aviation,\nthere is no way a bee\nshould be able to fly.\nIts wings are too small to get\nits fat little body off the ground.\nThe bee, of course, flies anyway\nbecause bees don't care\nwhat humans think is impossible.");
-	Rectangle head = new Rectangle(0, 0, 200, 200);
+	Text text = new Text(0, 0, "\nAccording to all known laws\nof aviation,\nthere is no way a bee\nshould be able to fly.\nIts wings are too small to get\nits fat little body off the ground.\nThe bee, of course, flies anyway\nbecause bees don't care\nwhat humans think is impossible.");
+
+	text.setFill(Color.RED);
 	
-	head.setStroke(Color.BLUE);
-	head.setFill(null);
-	
+	Rectangle rect = new Rectangle(0, 0, 200, 200);
+
+	rect.setStroke(Color.BLUE);
+	rect.setFill(null);
+
 	Rectangle flag = new Rectangle(250, 250, 80, 60);
 	Line pole = new Line(250, 250, 250, 500);
 
 	flag.setStroke(Color.YELLOW);
 	flag.setFill(Color.YELLOW);
-	
-	Group root = new Group(face, head, flag, pole);
+
+	Group root = new Group(text, rect, flag, pole);
 	Scene scene = new Scene(root, 640, 480, Color.LIGHTGREEN);
 
 	stage.setTitle("First Fx Program");

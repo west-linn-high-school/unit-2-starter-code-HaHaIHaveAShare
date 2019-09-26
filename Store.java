@@ -2,27 +2,27 @@ import java.util.*;
 import java.math.*;
 
 public class Store  {
-    
+
     public static void main (String [] args)  {
-	
+
 	Scanner sc = new Scanner(System.in);
 
 	System.out.print("Cashier name: ");
 	String cashierName = sc.nextLine();
-	
+
 	double grandTotal;
 	double subTotal;
 	double tax;
 	double shipping;
 
 	Random rand = new Random(); // Random number generator
-	
+
 	Product books = new Product(9.0, 0.95, true, 0.0, 50.0, "Books", 0);
 	books.getAmount();
 
 	Product movies = new Product(13.97, (0.04 * 13.97), true, 0.0, 50.0, "Movies", 0);
 	movies.getAmount();
-	
+
 	Product peanuts = new Product(1.72, .3, false, 0.0, 50.0, "Peanuts (lbs.)", -1);
 	peanuts.getAmount();
 
@@ -31,7 +31,7 @@ public class Store  {
 	shipping = books.ship + movies.ship + peanuts.ship;
 
 	grandTotal = subTotal + tax + shipping;
-	
+
 	System.out.format("+----------------------+\n" +
 			  "|Steve's S-MART        |\n" +
 			  "+----------------------+\n" +
@@ -58,9 +58,9 @@ public class Store  {
 			  rand.nextInt(24), rand.nextInt(60), rand.nextInt(60), rand.nextInt(28) + 1, rand.nextInt(12) + 1, rand.nextInt(20) + 2000,
 			  books.amount, books.total, movies.amount, movies.total, peanuts.amount, peanuts.total,
 			  subTotal, tax, shipping, grandTotal);
-	
+
     }
-    
+
 }
 
 class Product  { // I miss pointers
@@ -74,12 +74,12 @@ class Product  { // I miss pointers
     String PRODUCT;
 
     public Product (double price, double shipping, boolean taxable, double min, double max, String productName, int precision)  {
-	
+
 	PRICE = price;
 	SHIPPING = shipping;
 
 	TAXABLE = taxable;
-	
+
 	MAXAMOUNT = max;
 	MINAMOUNT = min;
 
@@ -109,7 +109,7 @@ class Product  { // I miss pointers
 	Scanner sc = new Scanner(System.in);
 
 	boolean exitLoop = false;
-	
+
 	do  {
 	    try  {
 		System.out.printf("%s purchased (%f - %f", PRODUCT, MAXAMOUNT, MINAMOUNT); // Prompt user for amount purchased
@@ -145,4 +145,4 @@ class Product  { // I miss pointers
 	    tax = total * .072;
 	}
     }
-} 
+}
